@@ -2,6 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f9f9f9;
 }
 
 header {
@@ -9,6 +10,12 @@ header {
     color: #fff;
     text-align: center;
     padding: 10px;
+}
+
+#searchInput {
+    padding: 5px;
+    margin: 10px;
+    width: 70%;
 }
 
 #videoPlayer {
@@ -31,6 +38,7 @@ header {
     padding: 10px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 img {
