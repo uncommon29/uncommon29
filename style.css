@@ -1,57 +1,28 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
 }
 
 header {
-    background-color: #ff0000;
+    background-color: #333;
     color: #fff;
+    padding: 1em;
     text-align: center;
-    padding: 10px;
 }
 
-#searchInput {
-    padding: 5px;
-    margin: 10px;
-    width: 70%;
-}
-
-#videoPlayer {
+main {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #000;
-    color: #fff;
     padding: 20px;
-}
-
-#videoList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.videoCard {
-    width: 300px;
-    margin: 10px;
-    padding: 10px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
 }
-
-h2 {
-    color: #333;
-}
-
-p {
-    color: #666;
-}
-
-/* Add more styles as needed */
