@@ -1,4 +1,3 @@
-// Example: Mock data for video playback and recommended videos
 const videoData = {
     currentVideo: {
         title: "Sample Video Title",
@@ -6,13 +5,12 @@ const videoData = {
         videoUrl: "https://www.example.com/sample-video.mp4"
     },
     recommendedVideos: [
-        { title: "Video 1", description: "Description 1", thumbnail: "video1.jpg" },
-        { title: "Video 2", description: "Description 2", thumbnail: "video2.jpg" },
+        { title: "Video 1", description: "Description 1", thumbnail: "video1.jpg", videoUrl: "https://www.example.com/video1.mp4" },
+        { title: "Video 2", description: "Description 2", thumbnail: "video2.jpg", videoUrl: "https://www.example.com/video2.mp4" },
         // Add more recommended videos
     ]
 };
 
-// Function to initialize video player
 function initVideoPlayer() {
     const videoPlayerSection = document.getElementById('videoPlayer');
     videoPlayerSection.innerHTML = `
@@ -25,11 +23,10 @@ function initVideoPlayer() {
     `;
 }
 
-// Function to initialize recommended videos
 function initRecommendedVideos() {
     const videoListSection = document.getElementById('videoList');
     videoListSection.innerHTML = '';
-    videoData.recommendedVideos.forEach(video => {
+    videoData.recommendedVideos.forEach((video, index) => {
         const videoCard = document.createElement('div');
         videoCard.classList.add('videoCard');
         videoCard.innerHTML = `
@@ -37,10 +34,26 @@ function initRecommendedVideos() {
             <h2>${video.title}</h2>
             <p>${video.description}</p>
         `;
+        videoCard.addEventListener('click', () => playVideo(index));
         videoListSection.appendChild(videoCard);
     });
 }
 
-// Initialize the video player and recommended videos
+function playVideo(index) {
+    videoData.currentVideo = videoData.recommendedVideos[index];
+    initVideoPlayer();
+}
+
+document.getElementById('searchInput').addEventListener('input', searchVideos);
+
+function searchVideos() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const filteredVideos = videoData.recommendedVideos.filter(video =>
+        video.title.toLowerCase().includes(searchTerm) || video.description.toLowerCase().includes(searchTerm)
+    );
+    videoData.recommendedVideos = filteredVideos;
+    initRecommendedVideos();
+}
+
 initVideoPlayer();
 initRecommendedVideos();
